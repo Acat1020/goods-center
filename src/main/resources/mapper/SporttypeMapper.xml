@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xw.goodscenter.mapper.SporttypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.xw.goodscenter.model.domain.Sporttype">
+            <id property="typeId" column="typeId" jdbcType="TINYINT"/>
+            <result property="typeName" column="typeName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        typeId,typeName
+    </sql>
+</mapper>

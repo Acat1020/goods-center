@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xw.goodscenter.mapper.PlayersMapper">
+
+    <resultMap id="BaseResultMap" type="com.xw.goodscenter.model.domain.Players">
+            <id property="id" column="id" jdbcType="TINYINT"/>
+            <result property="playerName" column="playerName" jdbcType="VARCHAR"/>
+            <result property="playerAge" column="playerAge" jdbcType="INTEGER"/>
+            <result property="playerContent" column="playerContent" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="sport" column="sport" jdbcType="VARCHAR"/>
+            <result property="typeId" column="typeId" jdbcType="INTEGER"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,playerName,playerAge,
+        playerContent,gender,phone,
+        sport,typeId,updateTime
+    </sql>
+
+    <select id="selectPlayer" resultType="com.xw.goodscenter.model.domain.request.PlayerSearchRequest">
+        SELECT a.id,a.playerName,a.playerAge,a.playerContent,a.gender,a.phone,a.sport,
+               b.typeName,a.updateTime
+        FROM `players` AS a
+        LEFT JOIN `sporttype` AS b
+        ON a.typeId = b.typeId;
+    </select>
+</mapper>
